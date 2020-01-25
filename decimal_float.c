@@ -8,7 +8,7 @@ scanf("%f",&f);
 while(f >=1){
 f /= 10;
 integerPart = (int)f;
-decimalPart = ((int)((f*10)%10));
+decimalPart = ((int)(f*N_DECIMAL_POINTS_PRECISION)%N_DECIMAL_POINTS_PRECISION);
 //printf("%d\n",integerPart);
 printf("%d\n",decimalPart);
 sum += decimalPart;
