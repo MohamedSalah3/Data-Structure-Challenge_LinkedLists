@@ -1,7 +1,10 @@
 #include <stdio.h>
-#pragma warn -rvl /*ignore warning of missing return value*/
-#pragma warn -par /*ignore warning of parameter never used*/
-#pragma warn -rch /*ignore un reachable code*/
+#pragma warn -rvl
+/*ignore warning of missing return value*/
+#pragma warn -par
+/*ignore warning of parameter never used*/
+#pragma warn -rch
+ /*ignore un reachable code*/
 int show(int);
 int main()
 {

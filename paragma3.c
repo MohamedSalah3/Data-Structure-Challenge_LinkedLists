@@ -7,6 +7,5 @@
 int main()
 {
 printf("This code should not work!!\n");
-
 return 0;
 }
