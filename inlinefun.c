@@ -1,5 +1,6 @@
 /*inline function*/
 #include <stdio.h>
+/*not ansi compitable*/
 static inline int func(int x)
 {
 return ++x;
