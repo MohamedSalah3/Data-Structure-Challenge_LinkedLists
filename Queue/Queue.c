@@ -64,7 +64,7 @@ return -1;
 
 uint8_t checkForBalancedParantheses(char* expression)
 {
-uint8_t loop=0,paranthese_loop=0,last=0,small_loop=0;
+uint8_t loop=0,paranthese_loop=0,small_loop=0;
 char arr_of_paranthese[20];
   do
   {
@@ -77,7 +77,7 @@ char arr_of_paranthese[20];
                 {
                   arr_of_paranthese[paranthese_loop]=expression[loop];
                   paranthese_loop++;
-                }else{
+                }else if(expression[loop] >= 42 &&expression[loop] >= 57 ){
                   enqueue(G_Queue_ptr,expression[loop]);
                 }
       loop++;
@@ -95,5 +95,11 @@ if(paranthese_loop){
   paranthese_loop--;
 }else{break;}
 }
+
+}
+
+uint64_t evaluate(char* expression)
+{uint8_t is_Balanced=0;
+is_Balanced=checkForBalancedParantheses(expression);
 
 }
