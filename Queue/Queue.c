@@ -60,6 +60,40 @@ else
 {
 return -1;
 }
+}
 
+uint8_t checkForBalancedParantheses(char* expression)
+{
+uint8_t loop=0,paranthese_loop=0,last=0,small_loop=0;
+char arr_of_paranthese[20];
+  do
+  {
+  if( (expression[loop]=='{')||
+        (expression[loop]== '}')||
+            (expression[loop]=='(')||
+              (expression[loop]==')') ||
+                (expression[loop]=='[') ||
+                (expression[loop]==']')  )
+                {
+                  arr_of_paranthese[paranthese_loop]=expression[loop];
+                  paranthese_loop++;
+                }else{
+                  enqueue(G_Queue_ptr,expression[loop]);
+                }
+      loop++;
+  }while (expression[loop]);
+
+while (paranthese_loop >= 0) {
+if(arr_of_paranthese[paranthese_loop-1-small_loop] - arr_of_paranthese[small_loop] <= 2)
+{
+  small_loop++;
+  return 1;
+}else{
+return 0;
+}
+if(paranthese_loop){
+  paranthese_loop--;
+}else{break;}
+}
 
 }

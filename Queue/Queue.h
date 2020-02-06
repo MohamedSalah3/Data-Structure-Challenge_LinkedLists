@@ -16,7 +16,8 @@ extern Queue *G_Queue_ptr;
 void createQueue(Queue* info,uint8_t maxSize);
 
 void enqueue(Queue *info,uint8_t data);
-
+uint8_t checkForBalancedParantheses(char* expression);
 void dequeue(Queue *info,uint8_t *data);
 int8_t is_Empty(void);
+
 #endif
