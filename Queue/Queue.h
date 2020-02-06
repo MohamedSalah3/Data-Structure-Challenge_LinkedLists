@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 typedef unsigned char uint8_t;
-typedef signed char uint8_t;
+typedef signed char int8_t;
 typedef long long uint64_t;
 typedef struct Queue{
 uint8_t *ptr_to_queue_arr;

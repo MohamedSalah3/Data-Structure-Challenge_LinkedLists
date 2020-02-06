@@ -77,9 +77,10 @@ char arr_of_paranthese[20];
                 {
                   arr_of_paranthese[paranthese_loop]=expression[loop];
                   paranthese_loop++;
-                }else if(expression[loop] >= 42 &&expression[loop] >= 57 ){
+                }else if(expression[loop] >= 42 && expression[loop] <= 57 ){
                   enqueue(G_Queue_ptr,expression[loop]);
-                }
+                printf("Hi\n");
+				}
       loop++;
   }while (expression[loop]);
 
@@ -99,7 +100,61 @@ if(paranthese_loop){
 }
 
 uint64_t evaluate(char* expression)
-{uint8_t is_Balanced=0;
+{
+  uint64_t Evaluation_return=0;
+uint8_t one_loop=0;
+uint8_t arr[3]={0,0,0};
+//uint8_t *ptr2arr=arr;
+uint8_t flag_first_3_deque=0;
+uint8_t is_Balanced=0;
+printf("%s\n",expression);
+printf("hi\n");
 is_Balanced=checkForBalancedParantheses(expression);
+while (is_Empty() != 1) {
+if(!flag_first_3_deque)
+{
+  for(one_loop=0;one_loop<3;one_loop++)
+  {
+dequeue(G_Queue_ptr,&arr[one_loop]);
+flag_first_3_deque=1;
+}
+switch (arr[1]) {
+  case '+':
+  Evaluation_return=arr[0]+arr[2];
+  break;
+  case '-':
+  Evaluation_return=arr[0]-arr[2];
+  break;
+  case '*':
+  Evaluation_return=arr[0]*arr[2];
+  break;
+  case '/':
+  Evaluation_return=arr[0]/arr[2];
+  break;
+}
+}
+else
+{
+for(one_loop=1;one_loop<3;one_loop++)
+dequeue(G_Queue_ptr,&arr[one_loop]);
+switch (arr[1]) {
+  case '+':
+  Evaluation_return+=arr[2];
+  break;
+  case '-':
+  Evaluation_return-=arr[2];
+  break;
+  case '*':
+  Evaluation_return*=arr[2];
+  break;
+  case '/':
+  Evaluation_return/=arr[2];
+  break;
 
+}
+
+}
+
+}
+return Evaluation_return;
 }
