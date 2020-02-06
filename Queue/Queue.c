@@ -12,6 +12,7 @@ G_Queue_ptr=info;
 
 void enqueue(Queue *info,uint8_t data)
 {
+if(is_Empty() == -1 || is_Empty()== 1){
 if((info->rear) == (info->size-1))
 {
 info->rear=0;
@@ -26,11 +27,11 @@ printf(" Normal :%d\n",data);
 g_u8_count++;
 G_Queue_ptr=info;
 }
-
-
+else{printf(" queue is full\n");}
+}
 void dequeue(Queue *info,uint8_t *data)
 {
-
+if(is_Empty()==0 || is_Empty() == -1){
 if((info->front) == (info->size-1))
 {
   *data=((info->ptr_to_queue_arr)[(info->front)]);
@@ -44,9 +45,10 @@ if((info->front) == (info->size-1))
 }
 g_u8_count--;
 G_Queue_ptr=info;
+}else{printf("queue is Empty");
 }
-
-signed char is_Empty(void)
+}
+signed int is_Empty(void)
 {
 if(g_u8_count == G_Queue_ptr->size)
 {
