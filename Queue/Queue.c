@@ -1,5 +1,6 @@
 #include "Queue.h"
 Queue *G_Queue_ptr=NULL;
+uint8_t g_u8_count=0;
 void createQueue(Queue* info,uint8_t maxSize)
 {
 (info->ptr_to_queue_arr)=(uint8_t *)calloc(maxSize,1);
@@ -22,6 +23,7 @@ printf("circular :%d\n",data);
   ((info->ptr_to_queue_arr)[info->rear])=data;
 printf(" Normal :%d\n",data);
 }
+g_u8_count++;
 G_Queue_ptr=info;
 }
 
@@ -40,5 +42,22 @@ if((info->front) == (info->size-1))
   (info->front)+=1;
   printf("Normal deque%d\n",*data );
 }
+g_u8_count--;
 G_Queue_ptr=info;
+}
+
+signed char is_Empty(void)
+{
+if(g_u8_count == G_Queue_ptr->size)
+{
+return 0;
+}else if(g_u8_count==0){
+  return 1;
+}
+else
+{
+return -1;
+}
+
+
 }
