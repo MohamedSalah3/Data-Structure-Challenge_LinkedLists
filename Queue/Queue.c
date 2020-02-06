@@ -48,7 +48,7 @@ G_Queue_ptr=info;
 }else{printf("queue is Empty");
 }
 }
-signed int is_Empty(void)
+int8_t is_Empty(void)
 {
 if(g_u8_count == G_Queue_ptr->size)
 {
