@@ -8,8 +8,7 @@
  }ST_list;
 typedef struct node{
 
-
-
+node* next;
 }node;
   char createList(ST_list *list);
 
