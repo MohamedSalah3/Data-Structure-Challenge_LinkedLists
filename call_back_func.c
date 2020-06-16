@@ -80,7 +80,6 @@ else{
 }
 
 ERROR_STATUS TMU_Main_Function(void)
-
 {
 	uint8_t ret=E_OK;
 	uint8_t status_flag=0;
